@@ -10,11 +10,13 @@ function romanToInt(string){
        }
        var total = 0
        for(let i = 0; i < string.length; i++){
-           if(romanDict[string.charAt(i)] < romanDict[string.charAt(i + 1)] && i < string.length-1){
-               total -= romanDict[string.charAt(i)]
+           var current = romanDict[string.charAt(i)]
+           var next = romanDict[string.charAt(i+1)]
+           if(current < next && i < string.length-1){
+               total -= current
            }
            else{
-               total += romanDict[string.charAt(i)]
+               total += current
            }
         }
        console.log("THE ROMAN NUMERAL", string, "=", total)
