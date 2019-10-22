@@ -1,0 +1,25 @@
+RECURSION NOTES - INTRODUCE CONCEPT
+
+
+THE 3 REQUIREMENTS THAT MAKE A RECURSION HAPPEN
+1. BASE CASE
+2. RECURSIVE CALL
+3. PROGRESSION(FORWARD PROGRESS)
+
+EXPLAIN THE T-CHARTING PROCESS OF A RECURSIVE CALL AND EXPLAIN THE CALL STACK
+
+EXAMPLE
+
+function nToZero(n){
+
+---------------------------------------------------------
+    if(ne === 0){         BASE CASE
+        return
+    }
+    console.log(n)
+---------------------------------------------------------
+                          RECURSIVE CALL
+    nToZero(n-1)          (n-1) is the progression
+---------------------------------------------------------
+
+}
