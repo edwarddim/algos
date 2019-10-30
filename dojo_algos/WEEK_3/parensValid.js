@@ -3,14 +3,13 @@
 // THERE ARE TWO WAYS YOU CAN DO THIS, ONE WITH A STACK AND ONE WITH A COUNTER
 
 function parensValid(string){
-    var stringArr = [...string]
     var parenStack = []
     var checker = {
         '{' : '}',
         '(' : ')',
         '[' : ']'
     };
-    for(char of stringArr){
+    for(char of string){
         if(char === '(' || char === '[' || char === '{'){
             parenStack.push(char)
         }
@@ -39,5 +38,5 @@ function parensValidCounter(string){
     if(counter == 0) return true
 }
 
-console.log(parensValidCounter("(())"))
+// console.log(parensValidCounter("(())"))
 console.log(parensValidCounter("())("))

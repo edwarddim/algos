@@ -1,0 +1,5 @@
+// GIVEN TWO STRINGS, WRITE A METHOD TO DECIDE IF ONE IS A PERMUTATION OF THE OTHER
+
+function isPermuation(string1, string2){
+    
+}

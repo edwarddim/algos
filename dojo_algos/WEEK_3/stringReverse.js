@@ -7,5 +7,4 @@ function reverseString(string){
     }
     console.log(letterArr.join(''))
 }
-
 reverseString("abcdef")

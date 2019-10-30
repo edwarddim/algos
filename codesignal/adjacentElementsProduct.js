@@ -11,8 +11,6 @@ function adjacentElementsProduct(inputArray) {
     }
     return returnInt
 }
-
-
 console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]))
 console.log(adjacentElementsProduct([-1, -2]))
 console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4]))

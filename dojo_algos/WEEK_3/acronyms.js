@@ -1,7 +1,5 @@
 // GIVEN "LIVE FROM SATURDAY NIGHT LIVE"
 // RETURN "LFSNL"
-
-
 function acronym(string){
     var list = string.split(" ")
     var returnString = ""

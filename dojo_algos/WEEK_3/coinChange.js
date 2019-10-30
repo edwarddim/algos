@@ -16,3 +16,4 @@ function coinChange(num){
 
 coinChange(321)
 coinChange(25)
+coinChange(3)
