@@ -1,6 +1,4 @@
 // [1,13,14,15,37,38,70] => "1, 13-15, 37-38, 70"
-
-
 function bookIndex(arr){
     var returnString = ''
     for(let i = 0; i < arr.length; i++){
