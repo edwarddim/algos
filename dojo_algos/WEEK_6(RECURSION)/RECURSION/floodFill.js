@@ -12,8 +12,6 @@ function filler(matrix, x, y, prevNum, number){
     filler(matrix, x, y + 1, prevNum, number)
     filler(matrix, x, y - 1, prevNum, number)
 }
-
-
 function floodFill(matrix, x , y, number){
     console.log("matrix BEFORE FLOOD: ")
     console.log(matrix)

@@ -91,7 +91,7 @@ class SLQueue{
             this.tail.next = rightRunner
             rightRunner = rightRunner.next
             this.tail = this.tail.next
-            
+
             count++
         }
     }
@@ -107,7 +107,7 @@ list.enqueue(2)
 list.enqueue(3)
 list.enqueue(4)
 list.enqueue(5)
-list.enqueue(6)
+// list.enqueue(6)
 // console.log("---------------------------------")
 // console.log("returning from dequeue: ", list.dequeue())
 list.printList()

@@ -10,8 +10,8 @@ function removeOuterParens(S){
        if(counter === 1 && c === '(' || counter === 0 && c === ')') continue;
        returnStr += c;
    }
-   console.log(temp)
-   return temp;
+   console.log(returnStr)
+   return returnStr;
 }
 
 removeOuterParens("(()())()")

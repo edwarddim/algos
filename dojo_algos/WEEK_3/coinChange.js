@@ -16,7 +16,6 @@ function coinChange(num){
     coinObj['penny'] = Math.floor(num / 1)
     console.log(coinObj)
 }
-
 // coinChange(321)
 coinChange(29)
 coinChange(3)

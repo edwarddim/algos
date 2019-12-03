@@ -1,3 +1,5 @@
+// TAKE A CAMEL CASE STRING AND SEPARATE SPLIT THE WORDS
+
 function camelCase(string){
     var returnString = '';
     [...string].forEach(letter => {
@@ -11,4 +13,4 @@ function camelCase(string){
     return returnString
 }
 
-camelCase('camelCasing')
+console.log(camelCase('camelCasing'))

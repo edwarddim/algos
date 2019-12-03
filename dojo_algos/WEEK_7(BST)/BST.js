@@ -147,15 +147,15 @@ class BST{
     };
     sortedArrtoBST(arr){
         var mid = Math.floor(arr.length/2)
-        console.log("ARR at beginning", arr)
+        // console.log("ARR at beginning", arr)
         if(arr.length < 1){
             console.log("NOT ARRAY")
             return null
         }
-        console.log("MID# at beginning: ", mid)
+        // console.log("MID# at beginning: ", mid)
         var root = new BSTNode(arr[mid])
-        console.log("LEFT ARRAY GOING TO RECUR", arr.slice(0,mid))
-        console.log("RIGHT ARRAY GOING TO RECUR", arr.slice(mid, arr.length))
+        // console.log("LEFT ARRAY GOING TO RECUR", arr.slice(0,mid))
+        // console.log("RIGHT ARRAY GOING TO RECUR", arr.slice(mid, arr.length))
         root.left = this.sortedArrtoBST(arr.slice(0,mid))
         root.right = this.sortedArrtoBST(arr.slice(mid+1, arr.length))
         return root

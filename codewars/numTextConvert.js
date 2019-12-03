@@ -1,4 +1,3 @@
-
 function numTextConvert(number){
     var numDict = {
         "0": "zero",
