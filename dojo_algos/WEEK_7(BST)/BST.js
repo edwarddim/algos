@@ -105,7 +105,7 @@ class BST{
         else{
             var leftHeight = this.height(node.left)
             var rightHeight = this.height(node.right)
-            if(leftHeight > rightHeight) return leftHeight+1
+            if(leftHeight > rightHeight) return leftHeight + 1
             else return rightHeight+1
         }
     };
@@ -113,7 +113,7 @@ class BST{
         if(node == null) return true
         var leftHeight = this.height(node.left)
         var rightHeight = this.height(node.right)
-        if(Math.abs(leftHeight - rightHeight) <= 1 && this.isBalanced(node.left) == true && this.isBalanced(node.right) == true) return true
+        if(Math.abs(leftHeight - rightHeight) <= 1 && this.isBalanced(node.left)  && this.isBalanced(node.right) ) return true
         return false
     };
     delete(node, value){
@@ -146,16 +146,11 @@ class BST{
         return node
     };
     sortedArrtoBST(arr){
-        var mid = Math.floor(arr.length/2)
-        // console.log("ARR at beginning", arr)
         if(arr.length < 1){
-            console.log("NOT ARRAY")
             return null
         }
-        // console.log("MID# at beginning: ", mid)
+        var mid = Math.floor(arr.length/2)
         var root = new BSTNode(arr[mid])
-        // console.log("LEFT ARRAY GOING TO RECUR", arr.slice(0,mid))
-        // console.log("RIGHT ARRAY GOING TO RECUR", arr.slice(mid, arr.length))
         root.left = this.sortedArrtoBST(arr.slice(0,mid))
         root.right = this.sortedArrtoBST(arr.slice(mid+1, arr.length))
         return root
@@ -182,7 +177,7 @@ bst.root = bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10])
 // bst.add(500);
 // bst.add(600);
 // bst.inorder()
-console.log("BST Size is: ", bst.size(bst.root))
+// console.log("BST Size is: ", bst.size(bst.root))
 
 
 // bst.delete(bst.root, 23)
