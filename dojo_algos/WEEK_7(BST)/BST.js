@@ -145,6 +145,15 @@ class BST{
         }
         return node
     };
+    isComplete(node, index, num_nodes){
+        if(node == null){
+            return true
+        }
+        if(index >= num_nodes){
+            return false
+        }
+        return (this.isComplete(node.left, 2*(index+1), num_nodes) && this.isComplete(node.right, 2*(index+2), num_nodes) )
+    };
     sortedArrtoBST(arr){
         if(arr.length < 1){
             return null
@@ -154,12 +163,13 @@ class BST{
         root.left = this.sortedArrtoBST(arr.slice(0,mid))
         root.right = this.sortedArrtoBST(arr.slice(mid+1, arr.length))
         return root
-    }
+    };
 }
 
 var bst = new BST();
 // console.log("NEW BST: ", bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10]))
 bst.root = bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10])
+// console.log(bst.isComplete(bst.root, 0, bst.size(bst.root)))
 
 // bst.add(23);
 // bst.add(45);
@@ -180,7 +190,10 @@ bst.root = bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10])
 // console.log("BST Size is: ", bst.size(bst.root))
 
 
-// bst.delete(bst.root, 23)
+// bst.inorder(bst.root)
+// bst.delete(bst.root, 5)
+// bst.inorder(bst.root)
+
 // console.log(bst.contains(23))
 // console.log(bst.contains(45))
 // console.log(bst.contains(16))

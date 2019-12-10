@@ -28,11 +28,9 @@ class SLQueue{
             this.head = new SLNode(val)
             return
         }
-        var runner = this.head
-        while(runner.next != null){
-            runner = runner.next
-        }
-        runner.next = new SLNode(val)
+        lastNode = new SLNode(val)
+        this.tail.next = lastNode
+        this.tail = lastNode
     }
     dequeue(){
         if(this.head == null){
@@ -42,6 +40,33 @@ class SLQueue{
         this.head = this.head.next
         return returnVal;
     }
+    removeMin(){
+        if(this.head == null){
+            console.log("EMPTY QUEUE")
+            return null
+        }
+        var runner = this.head;
+        var min = runner.val;
+        while(runner != null){
+            if(runner.val < min){
+                min = runner.val
+            }
+            runner = runner.next
+        }
+        runner = this.head
+        while(runner.next.next != null){
+            if(runner.next.val == min){
+                runner.next = runner.next.next
+            }
+            else{
+                runner = runner.next
+            }
+        }
+        if(runner.next.val == min){
+            this.tail = runner
+            runner.next == null
+        }
+    };
     zipper(arr1, arr2){
         this.head = new SLNode(arr1[0])
         this.head.next = new SLNode(arr2[0])

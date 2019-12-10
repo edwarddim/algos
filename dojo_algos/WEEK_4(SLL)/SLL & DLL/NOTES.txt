@@ -1,0 +1,13 @@
+Queues and Stacks Schedule
+Day 1
+ - Go over what Queues and Stacks are and the difference between them
+ - Do enqueue() and dequeue()
+Day 2
+ - removeMin()
+ - Both removing all mins and then removing the last min
+Day 3
+ - Build out stack class using underlying array as data struct
+Day 4
+ - parensValid() and isAnagram() using stacks and queues
+Day 5
+ - circularQueue() using array as underlying data struct

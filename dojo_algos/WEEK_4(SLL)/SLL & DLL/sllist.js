@@ -148,6 +148,11 @@ class SLList{
         this.head = leftPartitionHead
         leftRunner.next = rightPartitionHead
     }
+    zipper(arr1, arr2){
+        this.head = new Node(arr1[0])
+        this.head.next = new Node(arr2[0])
+        
+    }
 }
 
 const list = new SLList();
