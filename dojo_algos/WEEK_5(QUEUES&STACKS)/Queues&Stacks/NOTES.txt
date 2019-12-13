@@ -7,7 +7,5 @@ Day 2
  - Both removing all mins and then removing the last min
 Day 3
  - Build out stack class using underlying array as data struct
-Day 4
- - parensValid() and isAnagram() using stacks and queues
 Day 5
  - circularQueue() using array as underlying data struct
