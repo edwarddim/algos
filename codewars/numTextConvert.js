@@ -32,8 +32,6 @@ function numTextConvert(number){
     }
     var stringNum = number.toString();
     var answer = '';
-    // console.log("String length is: ",stringNum.length)
-    // console.log(stringNum);
     
     if(stringNum.length == 4){
         answer += numDict[stringNum.charAt(0)] + " thousand and ";

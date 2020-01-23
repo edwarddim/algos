@@ -1,5 +1,5 @@
 function zipArrHash(keyArr, valArr){
-    obj = {}
+    var obj = {}
     for(let i = 0; i < keyArr.length; i++){
         obj[keyArr[i]] = valArr[i]
     }

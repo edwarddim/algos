@@ -79,7 +79,7 @@ class BST{
         if(node == null) return 0
         else return(this.size(node.left) + 1 + this.size(node.right))
     };
-    contains(value){
+    contains(value){    
         if(this.root == null) return false
         if(this.root.value == value) return true
         else{

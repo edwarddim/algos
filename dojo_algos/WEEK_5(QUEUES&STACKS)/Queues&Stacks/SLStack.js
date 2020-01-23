@@ -22,7 +22,7 @@ class SLStack{
         if(this.head == null){
             return null
         }
-        var runnner = this.head
+        var runner = this.head
         while(runner.next.next != null){
             runner = runner.next
         }
