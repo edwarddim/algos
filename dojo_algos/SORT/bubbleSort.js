@@ -1,7 +1,6 @@
 // RUNNING A PAPER EXAMPLE OF A SORTING ALGO AT WORK HELPS VISUALIZE THE INDIVIUDAL COMPARISONS THAT ARE RUN
 // IT ALSO HELPS WITH PSEUDO CODE THE SOLUTION
 
-
 function bubbleSort(arr){
     for(let i = 0; i < arr.length; i++){
         var swapped = false;

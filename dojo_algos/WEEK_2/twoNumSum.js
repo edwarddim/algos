@@ -13,5 +13,4 @@ function twoNumSum(arr){
     }
     return returnArr
 }
-
 console.log(twoNumSum([1,2,3,4,5,6]))

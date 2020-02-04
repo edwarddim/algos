@@ -17,9 +17,10 @@ function mergeSort (unsortedArray) {
       if (left[leftIndex] < right[rightIndex]) {
         resultArray.push(left[leftIndex]);
         leftIndex++; 
-      } else {
+      }
+      else {
         resultArray.push(right[rightIndex]);
-              rightIndex++;
+        rightIndex++;
       }
     }
     // We need to concat to the resultArray because there will be one element left over after the while loop
