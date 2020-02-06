@@ -17,6 +17,7 @@ function nextLargeNum(num){
         console.log("NOT POSSIBLE")
         return
     }
+    
     var smallValue = numArr[i-1]
     var smallIndex = i
     for(var j = i+1; j < numLength; i++){

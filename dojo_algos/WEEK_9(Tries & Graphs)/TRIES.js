@@ -1,33 +1,6 @@
 class TrieNode{
     constructor(){
-        this.children = {
-            'a':null,
-            'b':null,
-            'c':null,
-            'd':null,
-            'e':null,
-            'f':null,
-            'g':null,
-            'h':null,
-            'i':null,
-            'j':null,
-            'k':null,
-            'l':null,
-            'm':null,
-            'n':null,
-            'o':null,
-            'p':null,
-            'q':null,
-            'r':null,
-            's':null,
-            't':null,
-            'u':null,
-            'v':null,
-            'w':null,
-            'x':null,
-            'y':null,
-            'z':null,
-        }
+        this.children = {}
         this.isEndOfWord = false
     }
 }
@@ -76,28 +49,92 @@ class TrieSet{
             }
             runner = runner.children[string[i]]
         }
-        if(runner.isEndOfWord == false){
+        if(runner.isEndOfWord == false ){
             console.log("THE CHARS ARE THERE BUT DOES NOT EXIST AS WORD")
             return
         }
         console.log("WORD EXISTS WITHIN TRIE")
     };
-    // autocomplete(string){
-    //     var wordLen = string.length
-    //     var runner = this.root
-    //     if(this.root == null){
-    //         console.log("TRIE IS EMPTY")
-    //         return
-    //     }
-    //     for(let i = 0; i < wordLen; i++){
-    //         if(runner.children[string[i]] != null){
-    //             runner = runner.children[string[i]]
-    //         }
-    //     }
-    // };
+    //----------------- AUTOCOMPLETE-FINSIHED--------------------//
+    autocomplete(string){
+        var wordLen = string.length
+        var runner = this.root
+        if(this.root == null){
+            console.log("TRIE IS EMPTY")
+            return
+        }
+        for(let i = 0; i < wordLen; i++){
+            if(runner.children[string[i]] != null){
+                runner = runner.children[string[i]]
+            }
+        }
+        console.log("AUTOCOMPLETE ARRAY: ", this.autoHelper(string, runner))
+    };
+    autoHelper(string, node){
+        var returnArr = []
+        if(node.isEndOfWord == true){
+            returnArr.push(string)
+        }
+        for(let key in node.children){
+            returnArr = returnArr.concat( this.autoHelper(string + key, node.children[key]) )
+        }
+        return returnArr;
+    };
+    // -------------------- DISPLAY-FINISHED------------------------//
+    display(){
+        var runner = this.root;
+        var arr = []
+        for(let key in runner.children){
+            arr = arr.concat(this.displayHelper(key, runner.children[key]))
+        }
+        console.log("ALL WORDS WITHIN THE TREE: ", arr);
+        
+    }
+    displayHelper(string, node){
+        var returnArr = []
+        if(node.isEndOfWord == true){
+            returnArr.push(string)
+        }
+        for(let key in node.children){
+            returnArr = returnArr.concat( this.autoHelper(string + key, node.children[key]) )
+        }
+        return returnArr;
+    }
+    // ---------------REMOVE WORD-FINISHED--------------------------//
+    remove(key){
+        var node = this.root
+        console.log(this.removeHelper(node, key));
+    };
+    removeHelper(node, key){
+        var size = Object.keys(node.children).length;
+        if(key.length == 0){
+            node.isEndOfWord = false;
+            return
+        }
+        if(size == 0){
+            return true
+        }
+        var curChar = key.slice(0,1)
+        if(this.removeHelper(node.children[curChar], key.slice(1))){
+            console.log('NODE BEFORE DELETE: ', node.children[curChar])
+            delete node.children[curChar]
+            console.log("NODE AFTER DELETE: ", node.children[curChar])
+            if(node.children.length == 0){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    };
 }
-
-
 var trie = new TrieSet();
 trie.insert("tom")
+trie.insert("tomb")
 trie.insert("tomato")
+trie.insert("tomatoes")
+trie.display();
+// trie.exists('tomb')
+trie.remove("tomatoes")
+// trie.autocomplete('tom')
+trie.display();

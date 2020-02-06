@@ -148,14 +148,14 @@ class SLList{
         this.head = leftPartitionHead
         leftRunner.next = rightPartitionHead
     }
-    zipper(arr1, arr2){
-        this.head = new Node(arr1[0])
-        this.head.next = new Node(arr2[0])
-        var runner = 
-        for(let i = 0; i < arr1.length; i++){
+    // zipper(arr1, arr2){
+    //     this.head = new Node(arr1[0])
+    //     this.head.next = new Node(arr2[0])
+    //     var runner = 
+    //     for(let i = 0; i < arr1.length; i++){
             
-        }
-    }
+    //     }
+    // }
 }
 
 const list = new SLList();
