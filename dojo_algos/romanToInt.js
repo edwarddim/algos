@@ -19,7 +19,7 @@ function romanToInt(string){
                total += current
            }
         }
-       console.log("THE ROMAN NUMERAL", string, "=", total)
+       console.log("THE ROMAN NUMERAL ", string, " = ", total)
 }
 
 romanToInt("III")

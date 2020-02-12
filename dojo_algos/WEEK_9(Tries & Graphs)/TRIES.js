@@ -116,9 +116,7 @@ class TrieSet{
         }
         var curChar = key.slice(0,1)
         if(this.removeHelper(node.children[curChar], key.slice(1))){
-            console.log('NODE BEFORE DELETE: ', node.children[curChar])
             delete node.children[curChar]
-            console.log("NODE AFTER DELETE: ", node.children[curChar])
             if(node.children.length == 0){
                 return true
             }

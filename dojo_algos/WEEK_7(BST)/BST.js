@@ -106,7 +106,7 @@ class BST{
             var leftHeight = this.height(node.left)
             var rightHeight = this.height(node.right)
             if(leftHeight > rightHeight) return leftHeight + 1
-            else return rightHeight+1
+            else return rightHeight + 1
         }
     };
     isBalanced(node){

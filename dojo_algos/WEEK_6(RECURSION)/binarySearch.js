@@ -1,10 +1,8 @@
 function binarySearch(arr, target){
     if(arr.length == 1){
-        console.log(arr)
-        return false
+        return (arr[0] == target) ? true : false;
     }
     var mid = Math.floor((arr.length) / 2)
-    console.log(mid)
     if(target == arr[mid]){
         return true
     }
@@ -15,4 +13,8 @@ function binarySearch(arr, target){
         return binarySearch(arr.slice(mid, arr.length), target)
     }
 }
-console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11], 13))
+console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,12,13], 10))
+console.log(binarySearch([0, 2, 4, 6, 8, 10, 12, 14, 16], 9 ))
+console.log(binarySearch([0, 2, 4, 6, 8, 10, 12, 14, 16], 16 ))
+console.log(binarySearch([0, 2, 4, 6, 8, 12, 14, 16], 8 ))
+console.log(binarySearch([8], 8 ))
