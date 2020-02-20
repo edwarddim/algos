@@ -24,6 +24,8 @@ function firstNonRepeatingLetter(string) {
     var lowestIndex = string.length;
     var returnAnswer = '';
     for(var letter in letterDict){
+        console.log(letterDict[letter])
+        console.log(letter)
         if(letterDict[letter].repeat){
             continue;
         }
@@ -39,16 +41,5 @@ function firstNonRepeatingLetter(string) {
 
 // firstNonRepeatingLetter('a')
 // firstNonRepeatingLetter('stress')
-console.log(firstNonRepeatingLetter('moonmen'))
+// console.log(firstNonRepeatingLetter('moonmen'))
 console.log(firstNonRepeatingLetter('sTreSS'))
-
-
-
-// function firstNonRepeatingLetter(s) {
-//     for(var i in s) {
-//       if(s.match(new RegExp(s[i],"gi")).length === 1) {
-//         return s[i];
-//       }
-//     }
-//     return '';
-// }

@@ -2,7 +2,6 @@
 // example
 // 1234 => 1243
 // 4321 => impossible
-
 function nextLargeNum(num){
     var numLength = num.toString().length;
     numArr = [...num.toString()]
@@ -17,10 +16,9 @@ function nextLargeNum(num){
         console.log("NOT POSSIBLE")
         return
     }
-    
     var smallValue = numArr[i-1]
     var smallIndex = i
-    for(var j = i+1; j < numLength; i++){
+    for(var j = i+1; j < numLength; j++){
         if(numArr[j] > smallValue && numArr[j] < numArr[smallIndex]){
             smallIndex = j
         }
@@ -28,11 +26,16 @@ function nextLargeNum(num){
     var temp = numArr[smallIndex]
     numArr[smallIndex] = numArr[i-1]
     numArr[i-1] = temp
-    // ******************* TO-DO ************ //
     // SORT THE RIGHT SIDE OF THE SMALL INDEX //
-
-    console.log(numArr)
+    var rArr = numArr.slice(i,numLength).sort()
+    numArr.splice(i,numLength)
+    numArr = numArr.concat(rArr)
+    var answer = ""
+    for(let i=0; i < numArr.length; i++){
+        answer += numArr[i]
+    }
+    console.log(parseInt(answer,10))
 }
-
-nextLargeNum(4321);
+// nextLargeNum(4321);
 nextLargeNum(1234);
+nextLargeNum(218765);

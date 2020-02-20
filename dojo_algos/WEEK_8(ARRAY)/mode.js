@@ -9,7 +9,6 @@ function mode(arr){
         }
     }
     var mode = 0;
-    var count = 0;
     Object.keys(obj).forEach(key =>{
         if(obj[key] > mode){
             mode = key
@@ -18,5 +17,4 @@ function mode(arr){
     })
     return mode
 }
-
 console.log(mode([1,2,3,1,1,2,2,5,6]))

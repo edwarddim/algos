@@ -20,8 +20,6 @@ function balancePoint(arr){
     // console.log("RIGHT SUM: ", rightSum)
     return (leftSum == rightSum) ? true : false
 }
-
-
 // console.log(balancePoint([1,2,3,4,10])) // TRUE
 // console.log(balancePoint([1,2,3,2,1]))  // FALSE
 // console.log(balancePoint([1,2,4,1,2,3,2,1]))  // TRUE
