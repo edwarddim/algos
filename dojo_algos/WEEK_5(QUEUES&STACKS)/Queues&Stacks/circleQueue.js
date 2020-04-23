@@ -1,10 +1,3 @@
-class SLNode{
-    constructor(value){
-        this.val = value
-        this.next = null
-    }
-}
-
 class CircleQueue{
     constructor(length){
         this.size = length
@@ -13,9 +6,7 @@ class CircleQueue{
         this.array = new Array(length)
     }
     displayValues(){
-        for(let i = 0; i < this.array.length; i++){
-            console.log(this.array[i])
-        }
+        console.log(this.array)
     }
     enqueue(value){
         if( (this.tail + 1)% this.size == this.head  ){
@@ -45,6 +36,7 @@ class CircleQueue{
         }
         else{
             var returnVal = this.array[this.haead]
+            this.array[this.head] = null;
             this.head = (this.head + 1) % this.size
             return returnVal
         }
@@ -57,4 +49,7 @@ list.enqueue(2)
 list.enqueue(3)
 list.enqueue(4)
 list.enqueue(5)
+list.dequeue()
+list.dequeue()
+list.dequeue()
 list.displayValues()

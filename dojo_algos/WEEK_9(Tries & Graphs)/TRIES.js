@@ -27,11 +27,8 @@ class TrieSet{
         for(let i = 0; i < wordLen; i++){
             if(runner.children[string[i]] == null){
                 runner.children[string[i]] = new TrieNode()
-                runner = runner.children[string[i]]
             }
-            else{
-                runner = runner.children[string[i]]
-            }
+            runner = runner.children[string[i]]
         }
         runner.isEndOfWord = true
     };
@@ -51,10 +48,39 @@ class TrieSet{
         }
         if(runner.isEndOfWord == false ){
             console.log("THE CHARS ARE THERE BUT DOES NOT EXIST AS WORD")
-            return
+            return false;
         }
         console.log("WORD EXISTS WITHIN TRIE")
+        return true
     };
+    singleComplete(string){
+        var wordLen = string.length
+        var runner = this.root
+        if(this.root == null){
+            console.log("TRIE IS EMPTY")
+            return
+        }
+        for(let i = 0; i < wordLen; i++){
+            if(runner.children[string[i]] != null){
+                runner = runner.children[string[i]]
+            }
+        }
+        for(let key in runner.children){
+            string += key;
+            runner = runner.children[key]
+            return this.singleHelper(string, runner)
+        }
+
+    }
+    singleHelper(string, runner){
+        if(runner.isEndOfWord === true) return string
+        for(let key in runner.children){
+            string += key;
+            runner = runner.children[key]
+            return this.singleHelper(string, runner)
+        }
+    }
+
     //----------------- AUTOCOMPLETE-FINSIHED--------------------//
     autocomplete(string){
         var wordLen = string.length
@@ -103,36 +129,31 @@ class TrieSet{
     // ---------------REMOVE WORD-FINISHED--------------------------//
     remove(key){
         var node = this.root
-        console.log(this.removeHelper(node, key));
+        this.removeHelper(node, key);
     };
     removeHelper(node, key){
         var size = Object.keys(node.children).length;
         if(key.length == 0){
             node.isEndOfWord = false;
-            return
-        }
-        if(size == 0){
-            return true
+            return (size == 0) ? true : false
         }
         var curChar = key.slice(0,1)
         if(this.removeHelper(node.children[curChar], key.slice(1))){
             delete node.children[curChar]
-            if(node.children.length == 0){
-                return true
-            }
-            else{
-                return false
-            }
+            size = Object.keys(node.children).length;
+            return (size == 0 && node.isEndOfWord == false) ? true : false
         }
     };
 }
 var trie = new TrieSet();
 trie.insert("tom")
 trie.insert("tomb")
-trie.insert("tomato")
 trie.insert("tomatoes")
-trie.display();
+trie.insert("tomato")
+// trie.display();
+// console.log(trie.singleComplete("toma"))
 // trie.exists('tomb')
 trie.remove("tomatoes")
+// trie.remove("tomato")
 // trie.autocomplete('tom')
 trie.display();

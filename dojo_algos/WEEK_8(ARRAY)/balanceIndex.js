@@ -11,19 +11,12 @@ function balanceIndex(arr){
         if(leftSum <= rightSum){
             leftSum += arr[leftInd]
             leftInd++
-            console.log("LEFT SUM ADDED: ", leftSum)
         }
         else {
             rightSum += arr[rightInd]
             rightInd--
-            console.log("RIGHT SUM ADDED: ", rightSum)
-
         }
     }
-    console.log("LEFT SUM: ", leftSum)
-    console.log("RIGHT SUM: ", rightSum)
-    console.log("LEFT INDEX: ", leftInd)
-    console.log("RIGHT INDEX: ", rightInd)
     return (leftSum == rightSum) ? leftInd : -1
 }
 
@@ -31,5 +24,6 @@ function balanceIndex(arr){
 // console.log(balanceIndex([-2,5,7,0,3]))
 
 // console.log(balanceIndex([9,9]))
-// console.log(balanceIndex([4,2,2,6]))
-// console.log(balanceIndex([9,1,9]))
+console.log(balanceIndex([4,2,2,6]))
+console.log(balanceIndex([9,1,9]))
+console.log(balanceIndex([1,8,1,2,3,4]))

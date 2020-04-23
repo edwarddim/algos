@@ -159,13 +159,12 @@ class SLList{
 }
 
 const list = new SLList();
-list.addToEnd(5)
-list.addToEnd(9)
+list.addToEnd(1)
 list.addToEnd(2)
-list.addToEnd(5)
+list.addToEnd(3)
+list.addToEnd(4)
 console.log('-------------------------------------------------')
 list.printAllValues()
-// list.moveMinToFront()
-list.moveMaxToBack()
+list.reverseList();
 console.log('-------------------------------------------------')
 list.printAllValues()

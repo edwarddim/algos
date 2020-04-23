@@ -12,7 +12,9 @@ class BST{
     inorder(node){
         if(node != null){
             this.inorder(node.left)
-            console.log(node.value)
+            console.log('--------------------------------------------')
+            console.log(node)
+            console.log('--------------------------------------------')
             this.inorder(node.right)
         }
     };
@@ -116,8 +118,18 @@ class BST{
         if(Math.abs(leftHeight - rightHeight) <= 1 && this.isBalanced(node.left)  && this.isBalanced(node.right) ) return true
         return false
     };
+
+    deleteWrapper(value){
+        if(this.contains(value)){
+            return this.delete(this.root, value)
+        }
+        else{
+            return false
+        }
+    }
+
     delete(node, value){
-        if(node == null) return false
+        if(node == null) return
         else if(value < node.value) node.left = this.delete(node.left, value)
         else if(value > node.value) node.right = this.delete(node.right, value)
         else{
@@ -136,11 +148,10 @@ class BST{
             }
             // CASE 2: Deleting with two child (finding MIN of RIGHT SUBTREE)
             else{
+                console.log('TWO CHILD DELETE')
                 var temp = this.findMin(node.right)
-                console.log("LOW VAL FROM TEMP: ", temp.value)
                 node.value = temp.value
                 node.right = this.delete(node.right, temp.value)
-                console.log("Deletion from node with two childs")
             }
         }
         return node
@@ -169,24 +180,14 @@ class BST{
 var bst = new BST();
 // console.log("NEW BST: ", bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10]))
 bst.root = bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10])
+bst.inorder(bst.root)
+console.log('***********************************************************')
+console.log(bst.deleteWrapper(5))
+console.log('***********************************************************')
+bst.inorder(bst.root)
+
 // console.log(bst.isComplete(bst.root, 0, bst.size(bst.root)))
 
-// bst.add(23);
-// bst.add(45);
-// bst.add(16);
-// bst.add(37);
-// bst.add(3);
-// bst.add(99);
-// bst.add(22);
-// bst.add(38);
-// bst.add(100);
-// bst.add(102);
-// bst.add(200);
-// bst.add(300);
-// bst.add(400);
-// bst.add(500);
-// bst.add(600);
-// bst.inorder()
 // console.log("BST Size is: ", bst.size(bst.root))
 
 

@@ -25,8 +25,7 @@ function mergeSort (unsortedArray) {
     }
     // We need to concat to the resultArray because there will be one element left over after the while loop
     return resultArray
-            .concat(left.slice(leftIndex))
-            .concat(right.slice(rightIndex));
+      .concat(left.slice(leftIndex))
+      .concat(right.slice(rightIndex));
   }
-
 console.log(mergeSort([5,3,7,9,24,15,37,2,1,8]))
