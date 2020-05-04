@@ -12,9 +12,9 @@ class BST{
     inorder(node){
         if(node != null){
             this.inorder(node.left)
-            console.log('--------------------------------------------')
-            console.log(node)
-            console.log('--------------------------------------------')
+            // console.log('--------------------------------------------')
+            console.log(node.value)
+            // console.log('--------------------------------------------')
             this.inorder(node.right)
         }
     };
@@ -166,6 +166,7 @@ class BST{
         return (this.isComplete(node.left, 2*(index+1), num_nodes) && this.isComplete(node.right, 2*(index+2), num_nodes) )
     };
     sortedArrtoBST(arr){
+        console.log(arr)
         if(arr.length < 1){
             return null
         }
@@ -182,9 +183,9 @@ var bst = new BST();
 bst.root = bst.sortedArrtoBST([1,2,3,4,5,6,7,8,9,10])
 bst.inorder(bst.root)
 console.log('***********************************************************')
-console.log(bst.deleteWrapper(5))
+// console.log(bst.deleteWrapper(5))
 console.log('***********************************************************')
-bst.inorder(bst.root)
+// bst.inorder(bst.root)
 
 // console.log(bst.isComplete(bst.root, 0, bst.size(bst.root)))
 
