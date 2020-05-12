@@ -18,7 +18,7 @@
     - then partition the left side of the array and the right side, recursively
 */
 
-const { partitionHoare, partitionLomuto } = require("../4_Thur/partition");
+const { partitionHoare, partitionLomuto } = require("./partition");
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
   // base case to stop recursion

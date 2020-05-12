@@ -14,7 +14,7 @@
   3. return: new idx of the pivot value
 */
 
-const swap = require("../swap");
+const swap = require("./swap");
 
 // src=https://itnext.io/a-sort-of-quick-guide-to-quicksort-and-hoares-partitioning-scheme-in-javascript-7792112c6d1
 // Hoare’s partitioning scheme, named for Sir Charles Antony Richard Hoare, who developed the quicksort algorithm.
