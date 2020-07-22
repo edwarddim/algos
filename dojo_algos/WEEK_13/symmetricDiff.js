@@ -15,6 +15,10 @@
   
 */
 
+console.log(deltaOfTwoSets([1, 2], [2, 1]))
+console.log(deltaOfTwoSets([1, 2, 3], [4, 5, 5, 6]))
+console.log(deltaOfTwoSets([4, 1, 2, 3, 4], [1, 2, 3, 5, 5]))
+
 function deltaOfTwoSets(setA, setB) {
     const symDiff = [];
   
@@ -23,51 +27,50 @@ function deltaOfTwoSets(setA, setB) {
         symDiff.push(n);
       }
     }
-  
     for (const n of setB) {
-      if (setA.includes(n) === false) {
+      if (setA.includes(n) === false && symDiff.includes(n) === false) {
         symDiff.push(n);
       }
     }
     return symDiff;
+}
+  
+// O(n) - delete from obj is O(1) constant time
+function deltaOfTwoSetsHashTable(setA, setB) {
+  const symDiffHash = {};
+
+  for (const num of setA) {
+    // the key becomes the num as a string, so store it as a val as well to avoid
+    // having to parseInt the key when we want an int
+    symDiffHash[num] = num;
   }
-  
-  // O(n) - delete from obj is O(1) constant time
-  function deltaOfTwoSetsHashTable(setA, setB) {
-    const symDiffHash = {};
-  
-    for (const num of setA) {
-      // the key becomes the num as a string, so store it as a val as well to avoid
-      // having to parseInt the key when we want an int
+
+  for (const num of setB) {
+    if (symDiffHash.hasOwnProperty(num)) {
+      delete symDiffHash[num];
+    } else {
       symDiffHash[num] = num;
     }
+  }
+  return Object.values(symDiffHash);
+}
   
-    for (const num of setB) {
+function deltaOfSetsHahTable(sets) {
+  if (sets.length < 2) {
+    return [];
+  }
+
+  const symDiffHash = {};
+
+  for (const set of sets) {
+    for (const num of set) {
       if (symDiffHash.hasOwnProperty(num)) {
         delete symDiffHash[num];
       } else {
         symDiffHash[num] = num;
       }
     }
-    return Object.values(symDiffHash);
   }
-  
-  function deltaOfSetsHahTable(sets) {
-    if (sets.length < 2) {
-      return [];
-    }
-  
-    const symDiffHash = {};
-  
-    for (const set of sets) {
-      for (const num of set) {
-        if (symDiffHash.hasOwnProperty(num)) {
-          delete symDiffHash[num];
-        } else {
-          symDiffHash[num] = num;
-        }
-      }
-    }
-  
-    return Object.values(symDiffHash);
-  }
+
+  return Object.values(symDiffHash);
+}
