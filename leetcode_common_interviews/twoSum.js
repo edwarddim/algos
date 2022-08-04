@@ -9,7 +9,7 @@ var twoSum = function(nums, target) {
         let difference = target - nums[i]
         for(let j = i + 1; j < nums.length; j++){
             console.log("DIFF: ", difference)
-            console.log("I: ",i)
+            console.log("I: ",i)cd
             console.log("J: ",j)
             if(difference == nums[j]){
                 return [i,j]
