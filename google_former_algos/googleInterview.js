@@ -1,3 +1,9 @@
+
+/*
+FIRST ROUND INTERVIEW WITH GOOGLE 8/8/2022
+
+*/
+
 function async_func(arg1, arg2, callback) {
     console.log(arg1);
     setTimeout(callback, arg2);
