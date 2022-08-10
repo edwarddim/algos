@@ -16,12 +16,12 @@ p.then(....);
 // PROMSIFY RETURNS A FUNCTION
 // AND THE FUNCTION RETURNS A PROMISE OBEJCT
 const promsify = (func) => {
-    const return_func = (arg1, arg2) => {
-        return Promise(resolve, reject) => {
-    func(arg1, arg2, resolve)
-}
+    return return_func = (arg1, arg2) => {
+        return new Promise((resolve, reject) => {
+            func(arg1, arg2, resolve)
+        })
     }
-  }
+}
 
 /*
  * Write a function that searches a sentence (in the form of a string) and returns whether the sentence contains a certain keyword (also in the form of a string).
