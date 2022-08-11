@@ -13,5 +13,29 @@
  * @return {number}
  */
 var search = function (nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
 
+    while (left < right) {
+        let middle = Math.floor((right + left) / 2)
+
+        if (target < nums[0] < nums[middle]) {
+            left = middle + 1
+        }
+        else if (target >= nums[0] > nums[middle]) {
+            right = middle
+        }
+        else if (target < nums[middle]) {
+            right = middle
+        }
+        else if (target > nums[middle]) {
+            left = middle + 1
+        }
+        else {
+            return middle
+        }
+    }
+    return -1
 };
+
+console.log(search([4, 5, 6, 7, 0, 1, 2], 3))
