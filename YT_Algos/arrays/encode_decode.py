@@ -8,7 +8,7 @@ exactly how many characters to extract for each original string. This avoids any
 or symbols inside the strings because the lengths tell us precisely where each string starts and ends.
 """
 
-def encode(self, strs: list[str]) -> str:
+def encode(strs: list[str]) -> str:
     if not strs:
         return ""
     sizes, result = [], ""
@@ -22,7 +22,7 @@ def encode(self, strs: list[str]) -> str:
         result += s
     return result
 
-def decode(self, s: str) -> list[str]:
+def decode(s: str) -> list[str]:
     if not s:
         return []
     sizes, result, i = [], [], 0
