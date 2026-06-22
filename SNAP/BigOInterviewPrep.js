@@ -1,6 +1,5 @@
-// SOLUTION 2
+// SOLUTION 1
 /**
- * Calculates the total price.
  * @param {string[]} words
  * @param {string} chars
  * @returns {number}
@@ -23,38 +22,37 @@ function countCharacters(words, chars){
 
 // SOLUTION 2
 /**
- * Calculates the total price.
  * @param {string[]} words
  * @param {string} chars
  * @returns {number}
  */
 function countCharacters(words, chars){
-    char_obj = {}
+    char_map = {}
     for(const char of chars){ // O( )
-        if(char in char_obj){ // O( )
-            char_obj[char] += 1 // O( )
+        if(char in char_map){ // O( )
+            char_map[char] += 1 // O( )
         }else{
-            char_obj[char] = 1 // O( )
+            char_map[char] = 1 // O( )
         }
     }
 
     valid_words = []
     for(const word of words){ // O( )
-        word_obj = {}
+        word_map = {}
         for(const char of word){ // O( )
-            if(char in char_obj){ // O( )
-                word_obj[char] += 1 // O( )
+            if(char in char_map){ // O( )
+                word_map[char] += 1 // O( )
             }else{
-                word_obj[char] = 1 // O( )
+                word_map[char] = 1 // O( )
             }
         }
 
         flag = true
-        for(const keys in Object.keys(word_obj)){ // O( )
-            if(!keys in char_obj){ // O( )
+        for(const keys in Object.keys(word_map)){ // O( )
+            if(!keys in char_map){ // O( )
                 flag = false
                 break
-            }else if(word_obj[keys] > char_obj[keys]){ // O( )
+            }else if(word_map[keys] > char_map[keys]){ // O( )
                 flag = false
                 break
             }
@@ -71,6 +69,11 @@ function countCharacters(words, chars){
 }
 
 
+// SOLUTION 3
+/**
+ * @param {Map <string:number>} chars
+ * @returns {Map <string:number>}
+ */
 function charFrequency(chars){
     char_map = {}
     for(const keys in Object.keys(chars)){ // O( )
@@ -80,9 +83,13 @@ function charFrequency(chars){
             char_map[char] = 1 // O( )
         }
     }
-    return char_dict
+    return char_map
 }
-
+/**
+ * @param {string} word
+ * @param {Map <string:number>} goodFreq
+ * @returns {boolean}
+ */
 function isGood(word, goodFreq){
     word_map = {}
     for(const letter of word){ // O( )
@@ -102,7 +109,6 @@ function isGood(word, goodFreq){
 }
 
 /**
- * Calculates the total price.
  * @param {string[]} words
  * @param {string} chars
  * @returns {number}
