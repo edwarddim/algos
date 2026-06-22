@@ -7,10 +7,13 @@ class Solution(object):
         """
         answer = []
         i = 0
+        # DIFFERENCE DICT WILL CONTAIN TARGET DIFF AS KEY, INDEX AS VALUE
         difference_dictionary = {}
         difference_dictionary[target - nums[i]] = i
         for i in range(1, len(nums)):
+            # ITERATING THRU LIST, NUM WILL BE THE TARGET DIFF
             target_diff = nums[i]
+            # IF THE TARGET DIFF IS NOT IN DICT, STORE KEY AND VALUE
             if target_diff not in difference_dictionary:
                 difference_dictionary[target - nums[i]] = i
             else:
